@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/style.css"
+          th:href="${'css/style.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="${'images/favicon.png'}"/>
+    <title>Correct_answers</title>
+</head>
+<body>
+    <div class="page">
+
+        <h1>Correct answers</h1>
+        
+            <div th:each="onePicture, iterator : ${pictures}" class="item">
+                <img th:src="'nature' + ${iterator.index} + '.jpg'"
+                     src="../static/images/photos/nature1-real.jpg"/>
+                <h3 th:if="${onePicture.type == T(cz.java_webapp.realfakequiz.Picture.TypeOfPicture).REAL_PICTURE}">REALITY</h3>
+                <h3 th:unless="${onePicture.type == T(cz.java_webapp.realfakequiz.Picture.TypeOfPicture).REAL_PICTURE}">COUNTERFEIT</h3>
+             </div>
+
+    </div>
+
+</body>
+</html>
